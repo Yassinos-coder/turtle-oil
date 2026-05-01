@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ── Custom keyframes ─────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* ── Theme tokens ─────────────────────────────────────── */
+@theme {
+  --animate-float: float 4s ease-in-out infinite;
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050505;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 999px; }
+}
+
+/* ── Utilities ────────────────────────────────────────── */
+@utility gold-text {
+  background: linear-gradient(135deg, #ffd700 0%, #d4a017 40%, #f5c518 70%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility emerald-gold-text {
+  background: linear-gradient(135deg, #ffd700 0%, #d4a017 30%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(212, 160, 23, 0.03) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 160, 23, 0.15);
+}
