@@ -1,0 +1,17 @@
+{
+  "name": "Turtle Oil ($TOIL)",
+  "short_name": "$TOIL",
+  "description": "Solana meme token built on patience and long-term wealth.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#d4a017",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

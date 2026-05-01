@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a2e1c"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
+    <radialGradient id="shell" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#ffd700"/>
+      <stop offset="60%" stop-color="#d4a017"/>
+      <stop offset="100%" stop-color="#8b6508"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4a017" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4a017" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+
+  <!-- Outer glow -->
+  <circle cx="256" cy="256" r="230" fill="url(#glow)"/>
+
+  <!-- Gold ring border -->
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#d4a017" stroke-width="6" opacity="0.6"/>
+
+  <!-- Turtle body -->
+  <ellipse cx="256" cy="290" rx="110" ry="80" fill="#2d5a1b"/>
+
+  <!-- Turtle shell (main dome) -->
+  <ellipse cx="256" cy="248" rx="120" ry="100" fill="url(#shell)"/>
+
+  <!-- Shell hexagon pattern -->
+  <ellipse cx="256" cy="240" rx="70" ry="60" fill="none" stroke="#8b6508" stroke-width="4" opacity="0.6"/>
+  <ellipse cx="256" cy="240" rx="40" ry="34" fill="none" stroke="#8b6508" stroke-width="3" opacity="0.5"/>
+  <line x1="256" y1="180" x2="256" y2="300" stroke="#8b6508" stroke-width="3" opacity="0.4"/>
+  <line x1="186" y1="240" x2="326" y2="240" stroke="#8b6508" stroke-width="3" opacity="0.4"/>
+  <line x1="200" y1="196" x2="312" y2="284" stroke="#8b6508" stroke-width="2.5" opacity="0.35"/>
+  <line x1="312" y1="196" x2="200" y2="284" stroke="#8b6508" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Shell highlight -->
+  <ellipse cx="230" cy="210" rx="35" ry="25" fill="white" opacity="0.12"/>
+
+  <!-- Head -->
+  <ellipse cx="256" cy="158" rx="38" ry="34" fill="#3a7a20"/>
+  <!-- Eye left -->
+  <circle cx="242" cy="150" r="7" fill="#1a1a1a"/>
+  <circle cx="244" cy="148" r="3" fill="white"/>
+  <!-- Eye right -->
+  <circle cx="270" cy="150" r="7" fill="#1a1a1a"/>
+  <circle cx="272" cy="148" r="3" fill="white"/>
+
+  <!-- Front legs -->
+  <ellipse cx="148" cy="300" rx="28" ry="18" fill="#2d5a1b" transform="rotate(-20 148 300)"/>
+  <ellipse cx="364" cy="300" rx="28" ry="18" fill="#2d5a1b" transform="rotate(20 364 300)"/>
+
+  <!-- Back legs -->
+  <ellipse cx="168" cy="358" rx="26" ry="16" fill="#2d5a1b" transform="rotate(30 168 358)"/>
+  <ellipse cx="344" cy="358" rx="26" ry="16" fill="#2d5a1b" transform="rotate(-30 344 358)"/>
+
+  <!-- Tail -->
+  <ellipse cx="256" cy="368" rx="14" ry="22" fill="#2d5a1b"/>
+
+  <!-- Gold accent dots -->
+  <circle cx="256" cy="240" r="8" fill="#ffd700" opacity="0.9"/>
+  <circle cx="210" cy="215" r="5" fill="#ffd700" opacity="0.7"/>
+  <circle cx="302" cy="215" r="5" fill="#ffd700" opacity="0.7"/>
+  <circle cx="210" cy="265" r="5" fill="#ffd700" opacity="0.7"/>
+  <circle cx="302" cy="265" r="5" fill="#ffd700" opacity="0.7"/>
+</svg>

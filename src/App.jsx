@@ -295,6 +295,7 @@ function ContractSection({ onCopy }) {
               whileHover={{ scale: 1.07, boxShadow: '0 0 20px rgba(212,160,23,0.35)' }}
               whileTap={{ scale: 0.93 }}
               onClick={onCopy}
+              aria-label="Copy contract address to clipboard"
               className="flex-shrink-0 flex items-center gap-2 bg-yellow-500/15 hover:bg-yellow-500/25 border border-yellow-500/30 text-yellow-400 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
             >
               <span>📋</span> Copy
@@ -705,6 +706,87 @@ function StatsBanner() {
   )
 }
 
+// ─── FAQ Section ─────────────────────────────────────────────────────────────
+
+const FAQS = [
+  {
+    q: 'What is Turtle Oil ($TOIL)?',
+    a: 'Turtle Oil ($TOIL) is a community-driven meme token on the Solana blockchain, built on the principles of patience, accumulation, and long-term wealth. Unlike most meme coins, $TOIL has no rush — just steady, deliberate growth.',
+  },
+  {
+    q: 'What is the $TOIL contract address on Solana?',
+    a: `The official Turtle Oil contract address is ${CONTRACT_ADDRESS} on the Solana network. Always verify the contract before buying.`,
+  },
+  {
+    q: 'Where can I buy $TOIL?',
+    a: 'You can buy $TOIL on Raydium by swapping SOL for TOIL. Simply connect your Solana wallet (Phantom, Backpack, etc.), paste the contract address, and swap.',
+  },
+  {
+    q: 'Is $TOIL safe? Is it a rug pull?',
+    a: 'Yes — LP is burned, mint authority is disabled, and freeze authority is disabled. This means no new tokens can ever be minted, no wallets can be frozen, and liquidity cannot be removed. $TOIL is fully community-owned.',
+  },
+  {
+    q: 'What is the total supply of $TOIL?',
+    a: 'The total supply is 1,000,000,000 (1 billion) TOIL tokens. There will never be more — mint is permanently disabled.',
+  },
+]
+
+function FaqSection() {
+  const [open, setOpen] = useState(null)
+
+  return (
+    <section id="faq" className="py-24 px-6">
+      <Reveal className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <SectionLabel>FAQ</SectionLabel>
+          <h2 className="text-4xl md:text-5xl font-black text-white">
+            Common{' '}
+            <span className="emerald-gold-text">Questions</span>
+          </h2>
+        </div>
+        <div className="flex flex-col gap-3">
+          {FAQS.map((faq, i) => (
+            <div
+              key={i}
+              className="glass-card rounded-2xl overflow-hidden"
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-yellow-500/5 transition-colors"
+              >
+                <span className="text-white font-semibold text-base">{faq.q}</span>
+                <motion.span
+                  animate={{ rotate: open === i ? 45 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-yellow-400 text-xl shrink-0"
+                >
+                  +
+                </motion.span>
+              </button>
+              <AnimatePresence initial={false}>
+                {open === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <p className="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
+  )
+}
+
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 function Footer() {
@@ -766,13 +848,16 @@ export default function App() {
     <div className="min-h-screen bg-[#050505] text-white overflow-x-hidden">
       <Navbar />
       <Toast message={toast.message} visible={toast.visible} />
-      <HeroSection />
-      <StatsBanner />
-      <ContractSection onCopy={handleCopyContract} />
-      <AboutSection />
-      <TokenomicsSection />
-      <MascotSection />
-      <LinksSection />
+      <main>
+        <HeroSection />
+        <StatsBanner />
+        <ContractSection onCopy={handleCopyContract} />
+        <AboutSection />
+        <TokenomicsSection />
+        <MascotSection />
+        <LinksSection />
+        <FaqSection />
+      </main>
       <Footer />
     </div>
   )
