@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import logoUrl from './assets/logo.png'
 
 const CONTRACT_ADDRESS = '5yFLXHSM2MX7w8HdyirwJX6BRqSJdJjQ1Chvs8Ndjhs9'
 
@@ -54,7 +55,11 @@ function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <span className="text-2xl leading-none">🐢</span>
+          <img
+            src={logoUrl}
+            alt="Turtle Oil logo"
+            className="w-9 h-9 rounded-full border border-yellow-500/30 object-cover"
+          />
           <span className="font-black text-xl gold-text tracking-tight">$TOIL</span>
         </div>
 
@@ -188,6 +193,31 @@ function HeroSection() {
       <OilBackground />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-20">
+        {/* Hero logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="flex justify-center mb-8"
+        >
+          <motion.div
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative"
+          >
+            <div
+              className="absolute inset-0 rounded-full blur-2xl opacity-40"
+              style={{ background: 'radial-gradient(circle, #d4a017, #10b981)' }}
+            />
+            <img
+              src={logoUrl}
+              alt="Turtle Oil — turtle sheikh mascot"
+              className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full border-2 border-yellow-500/40 object-cover shadow-2xl"
+              style={{ boxShadow: '0 0 40px rgba(212,160,23,0.45), 0 0 80px rgba(212,160,23,0.15)' }}
+            />
+          </motion.div>
+        </motion.div>
+
         {/* Live badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -377,26 +407,18 @@ function AboutSection() {
               }}
             />
 
-            {/* Floating turtle */}
+            {/* Floating logo */}
             <motion.div
-              animate={{ y: [0, -18, 0], rotate: [-1.5, 1.5, -1.5] }}
+              animate={{ y: [0, -18, 0], rotate: [-1, 1, -1] }}
               transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
               className="absolute inset-0 flex items-center justify-center"
-              style={{
-                filter: 'drop-shadow(0 0 28px rgba(212,160,23,0.6)) drop-shadow(0 0 60px rgba(212,160,23,0.25))',
-              }}
             >
-              <span className="text-[7rem] select-none leading-none">🐢</span>
-            </motion.div>
-
-            {/* Oil barrel floating nearby */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
-              className="absolute bottom-6 right-4 text-4xl select-none"
-              style={{ filter: 'drop-shadow(0 0 12px rgba(212,160,23,0.45))' }}
-            >
-              🛢️
+              <img
+                src={logoUrl}
+                alt="Turtle Oil mascot"
+                className="w-52 h-52 sm:w-60 sm:h-60 rounded-full object-cover"
+                style={{ filter: 'drop-shadow(0 0 28px rgba(212,160,23,0.6)) drop-shadow(0 0 60px rgba(212,160,23,0.2))' }}
+              />
             </motion.div>
 
             {/* Orbiting gold dots */}
@@ -533,35 +555,21 @@ function MascotSection() {
           />
 
           {/* Card surface */}
-          <div
-            className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full flex items-center justify-center"
+          <motion.div
+            animate={{ y: [0, -20, 0], scale: [1, 1.03, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full overflow-hidden"
             style={{
-              background:
-                'radial-gradient(circle, rgba(212,160,23,0.18) 0%, rgba(16,185,129,0.07) 50%, rgba(8,16,10,0.95) 80%)',
+              boxShadow:
+                '0 0 40px rgba(212,160,23,0.6), 0 0 80px rgba(212,160,23,0.25), 0 0 120px rgba(16,185,129,0.1)',
             }}
           >
-            {/* Floating turtle */}
-            <motion.div
-              animate={{ y: [0, -20, 0], scale: [1, 1.04, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              style={{
-                filter:
-                  'drop-shadow(0 0 30px rgba(212,160,23,0.7)) drop-shadow(0 0 70px rgba(212,160,23,0.3))',
-              }}
-            >
-              <span className="text-8xl sm:text-9xl select-none leading-none">🐢</span>
-            </motion.div>
-
-            {/* Crown */}
-            <motion.div
-              animate={{ y: [0, -6, 0], rotate: [-4, 4, -4] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-              className="absolute -top-4 left-1/2 -translate-x-1/2 text-3xl select-none"
-              style={{ filter: 'drop-shadow(0 0 10px rgba(255,215,0,0.8))' }}
-            >
-              👑
-            </motion.div>
-          </div>
+            <img
+              src={logoUrl}
+              alt="Turtle Oil — Sheikh turtle mascot holding oil and money"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </motion.div>
 
           {/* Orbiting icons */}
           {[
